@@ -64,7 +64,7 @@ with onglet1:
 
     # --- SECTION IMPACT FINANCIER (Ajoutée par mes soins) ---
     st.markdown("---")
-    st.subheader("💰 Impact Financier du Modèle")
+    st.subheader("Impact Financier du Modèle")
     
     # Je calcule ici le manque à gagner évité grâce à la détection
     montant_moyen_fraude = df[df['Class']==1]['Amount'].mean()
