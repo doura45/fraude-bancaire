@@ -62,6 +62,24 @@ with onglet1:
     col_b.metric("Nombre de Fraudes", nb_fraudes)
     col_c.metric("Taux de Fraude", f"{taux_fraude:.4f}%")
 
+    # --- SECTION IMPACT FINANCIER (Ajoutée par mes soins) ---
+    st.markdown("---")
+    st.subheader("💰 Impact Financier du Modèle")
+    
+    # Je calcule ici le manque à gagner évité grâce à la détection
+    montant_moyen_fraude = df[df['Class']==1]['Amount'].mean()
+    fraudes_detectees = int(nb_fraudes * 0.71) # Basé sur le rappel (recall) du modèle
+    montant_sauvegarde = fraudes_detectees * montant_moyen_fraude
+    
+    st.write("J'ai analysé l'impact économique du modèle pour estimer les économies réalisées par la banque :")
+    
+    st.markdown(f"""
+    - **Montant moyen d'une fraude :** {montant_moyen_fraude:.2f} $
+    - **Fraudes détectées par le modèle :** {fraudes_detectees}
+    - **Montant protégé estimé :** {montant_sauvegarde:,.2f} $
+    """)
+    st.markdown("---")
+
     st.markdown("### Répartition Normal vs Fraude")
     st.write("Note : On remarque que les transactions frauduleuses sont extrêmement rares (moins de 1%).")
     
