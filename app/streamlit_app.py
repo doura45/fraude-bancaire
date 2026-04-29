@@ -44,11 +44,11 @@ with st.sidebar:
     st.write("Ce projet utilise un modèle de Machine Learning pour identifier les transactions bancaires à risque.")
 
 # --- TITRE PRINCIPAL ---
-st.title("🛡️ Détection de Fraude Bancaire")
+st.title("Détection de Fraude Bancaire")
 st.markdown("---")
 
 # --- ONGLETS ---
-onglet1, onglet2, onglet3 = st.tabs(["📊 Statistiques Globales", "🔍 Facteurs de Risque", "🤖 Testeur de Transaction"])
+onglet1, onglet2, onglet3 = st.tabs(["Statistiques Globales", "Facteurs de Risque", "Testeur de Transaction"])
 
 # --- ONGLET 1 : STATISTIQUES GLOBALES ---
 with onglet1:
@@ -89,7 +89,7 @@ with onglet2:
                  color='Importance', color_continuous_scale='Reds')
     st.plotly_chart(fig2, use_container_width=True)
     
-    st.info("💡 Les variables comme V17, V14 et V12 sont souvent les plus révélatrices d'un comportement suspect.")
+    st.info("Les variables comme V17, V14 et V12 sont souvent les plus révélatrices d'un comportement suspect.")
 
 # --- ONGLET 3 : TESTEUR DE TRANSACTION ---
 with onglet3:
@@ -132,10 +132,10 @@ with onglet3:
             st.progress(probabilite_fraude)
             
             if probabilite_fraude > 0.5:
-                st.error("### ⚠️ ALERTE : Transaction suspectée FRAUDULEUSE")
+                st.error("### ALERTE : Transaction suspectée FRAUDULEUSE")
                 st.write("Le modèle recommande de bloquer cette transaction pour vérification.")
             else:
-                st.success("### ✅ VALIDÉ : Transaction probablement LÉGITIME")
+                st.success("### VALIDÉ : Transaction probablement LÉGITIME")
                 st.write("Le risque est considéré comme acceptable.")
 
 # --- FOOTER ---
