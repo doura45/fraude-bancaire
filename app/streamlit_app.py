@@ -66,15 +66,16 @@ with onglet1:
     st.markdown("---")
     st.subheader("Impact Financier du Modèle")
     
-    # Je calcule ici le manque à gagner évité grâce à la détection
+    # Note : L'application utilise un échantillon de 50 000 transactions (Taux fraude local : 0.97%)
+    # pour refléter la performance sur le dataset original (Taux fraude : 0.17%)
     montant_moyen_fraude = df[df['Class']==1]['Amount'].mean()
-    fraudes_detectees = int(nb_fraudes * 0.71) # Basé sur le rappel (recall) du modèle
+    fraudes_detectees = int(nb_fraudes * 0.7449) # Recall exact du modèle
     montant_sauvegarde = fraudes_detectees * montant_moyen_fraude
     
-    st.write("J'ai analysé l'impact économique du modèle pour estimer les économies réalisées par la banque :")
+    st.write("J'ai analysé l'impact économique du modèle (Recall de 74.49%) :")
     
     st.markdown(f"""
-    - **Montant moyen d'une fraude :** {montant_moyen_fraude:.2f} $
+    - **Taux de fraude original :** 0.17 %
     - **Fraudes détectées par le modèle :** {fraudes_detectees}
     - **Montant protégé estimé :** {montant_sauvegarde:,.2f} $
     """)
